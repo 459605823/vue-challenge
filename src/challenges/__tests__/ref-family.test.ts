@@ -1,5 +1,4 @@
 import { describe, it, expect } from "vitest";
-import { unref, ref, isRef, reactive, toRef } from "vue";
 
 describe("ref family", () => {
   const count = ref(10);
@@ -16,7 +15,7 @@ describe("ref family", () => {
   });
   it("toRef", () => {
     foo.value++;
-    expect(state.foo).toMatchInlineSnapshot('2');
+    expect(state.foo).toMatchInlineSnapshot("2");
     state.foo++;
     expect(foo.value).toMatchInlineSnapshot("3");
   });
