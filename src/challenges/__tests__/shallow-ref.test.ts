@@ -6,9 +6,7 @@ describe("shallow ref", () => {
   watch(
     state,
     () => {
-      console.log("state update");
       result.value = state.value.count;
-      console.log(result.value);
     },
     { deep: true }
   );
@@ -16,10 +14,9 @@ describe("shallow ref", () => {
     state.value.count = 2;
     expect(result.value).not.toBe(2);
   });
-  test("shallow reactive", () => {
+  test("shallow reactive", async () => {
     state.value = { count: 2 };
-    nextTick(() => {
-      expect(result.value).toBe(2);
-    });
+    await nextTick();
+    expect(result.value).toBe(2);
   });
 });
